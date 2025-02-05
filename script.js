@@ -5,8 +5,7 @@ console.log("ready!")
 })
 //TODO: add functionality to open the correct spell books
 function openSpellBook(){
-    console.log("Finding the right spellbook!")
-    document.add
+    console.log("How do you find the right spellbook?!")
 }
 //TODO: add functionality to change password
 //TODO: add functionality to change name
