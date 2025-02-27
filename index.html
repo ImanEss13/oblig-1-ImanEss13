@@ -127,5 +127,81 @@
         <img src="resources/books/manuscript.webp" alt="Cover of Mystical Manuscripts of Summon Familiar">
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+            // Klikk på bokomslagene for å vise de respektive spell-sidene
+            $('#change-password-book-cover').click(function () {
+                $('#change-password-book').removeClass('hidden');
+                $('#book-view').removeClass('hidden');
+            });
+
+            $('#change-name-book-cover').click(function () {
+                $('#change-name-book').removeClass('hidden');
+                $('#book-view').removeClass('hidden');
+            });
+
+            $('#summon-familiar-book-cover').click(function () {
+                $('#summon-familiar-book').removeClass('hidden');
+                $('#book-view').removeClass('hidden');
+            });
+
+            // Lukk boken
+            $('#close-tome').click(function () {
+                $('#book-view').addClass('hidden');
+            });
+
+            // Formulær for å endre passord
+            $('#change-password-form').submit(function (e) {
+                e.preventDefault();
+                var newPassword = $('#new-password').val();
+                var confirmPassword = $('#confirm-password').val();
+
+                if (newPassword === confirmPassword) {
+                    $('#password-feedback').text('Password changed successfully!');
+                } else {
+                    $('#password-feedback').text('Passwords do not match.');
+                }
+            });
+
+            // Formulær for å endre navn
+            $('#rename-form').submit(function (e) {
+                e.preventDefault();
+                var newName = $('#new-name').val();
+                var newTitle = $('#new-title').val();
+
+                $('#wizard-name').text(newName);
+                $('#wizard-title').text(newTitle);
+
+                $('#name-feedback').text('Name and title updated!');
+            });
+
+            // Formulær for å påkalle familiar
+            $('#summon-form').submit(function (e) {
+                e.preventDefault();
+                var familiarName = $('#familiar-name').val();
+                var familiarType = $('#familiar-type').val();
+                var hasWings = $('#has-wings').is(':checked');
+                var familiarMood = $('#familiar-mood').val();
+                var contractEnd = $('#contract-end').val();
+
+                var familiarDetails = 'Summoning: ' + familiarName + ' the ' + familiarType + ' with a mood of ' + familiarMood;
+                if (hasWings) {
+                    var wingType = $('#wing-type').val();
+                    familiarDetails += ' and wings (' + wingType + ')';
+                }
+                $('#familiar-feedback').text(familiarDetails);
+            });
+
+            // Vis/hide wing type input
+            $('#has-wings').change(function () {
+                if ($(this).is(':checked')) {
+                    $('#wing-type').removeClass('hidden');
+                } else {
+                    $('#wing-type').addClass('hidden');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
+

@@ -21,6 +21,15 @@ document.getElementById('change-password-form').addEventListener('submit', funct
    }
 });
 });
+$(".book").click(function () {
+   var bookId = $(this).attr("id") + "-book"; // Finn bokens ID
+   $("#" + bookId).removeClass("hidden"); // Vis boken
+});
+
+$("#close-tome").click(function () {
+   $(this).closest(".spell-page").addClass("hidden"); // Skjul bokinnhold
+});
+// 
 document.getElementById('rename-form').addEventListener('submit', function(event) {
    event.preventDefault(); // Hindrer at skjemaet sender og oppdaterer siden
 
@@ -57,16 +66,29 @@ document.getElementById('summon-form').addEventListener('submit', function(event
    // Bygg en beskrivelse av familiaren
    let description = `${familiarName}, a ${familiarType} with ${wingType} wings.`;
    if (traits.length > 0) {
-       description += ` It has the following traits: ${traits.join(', ')}.`;
+       familiardescription += ` It has the following traits: ${traits.join(', ')}.`;
    }
-   description += ` It appears to be ${mood}. The contract ends on ${contractEnd}.`;
+   familiardescription += ` It appears to be ${mood}. The contract ends on ${contractEnd}.`;
 
    // Vis familiarens beskrivelse i konsollen
    console.log(description);
+   alert(familiarDescription);
 
    // Vis en tilbakemelding på nettsiden
-   document.getElementById('familiar-feedback').innerText = description;
+   document.getElementById('familiar-feedback').innerText = "Familiar summoned successfully!";
+   document.getElementById('familiar-feedback').style.color = "green";
 });
+
+// Dynamisk visning av vingetype basert på "Has Wings"-checkbox
+document.getElementById('has-wings').addEventListener('change', function() {
+   const wingTypeField = document.getElementById('wing-type');
+   if (this.checked) {
+       wingTypeField.classList.remove('hidden');
+   } else {
+       wingTypeField.classList.add('hidden');
+   }
+});
+   
 
 //TODO: add functionality to change password
 //TODO: add functionality to change name
