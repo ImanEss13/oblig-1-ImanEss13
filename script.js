@@ -21,6 +21,22 @@ document.getElementById('change-password-form').addEventListener('submit', funct
    }
 });
 });
+document.getElementById('rename-form').addEventListener('submit', function(event) {
+   event.preventDefault(); // Hindrer at skjemaet sender og oppdaterer siden
+
+   // Hent verdiene fra inputfeltene
+   const newName = document.getElementById('new-name').value;
+   const newTitle = document.getElementById('new-title').value;
+   
+   // Oppdater navnet og tittelen på siden
+   document.getElementById('wizard-name').innerText = newName;
+   document.getElementById('wizard-title').innerText = newTitle;
+   
+   // Vis en suksessmelding
+   document.getElementById('name-feedback').innerText = "Name and title changed successfully!";
+   document.getElementById('name-feedback').style.color = "green";
+});
+
 //TODO: add functionality to open the correct spell books
 function openSpellBook(){
    console.log("How do you find the right spellbook?!")
