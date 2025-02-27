@@ -42,6 +42,32 @@ function openSpellBook(){
    console.log("How do you find the right spellbook?!")
 
 }
+document.getElementById('summon-form').addEventListener('submit', function(event) {
+   event.preventDefault(); // Hindrer at skjemaet sender og oppdaterer siden
+
+   // Hent verdier fra skjemaet
+   const familiarName = document.getElementById('familiar-name').value;
+   const familiarType = document.getElementById('familiar-type').value;
+   const hasWings = document.getElementById('has-wings').checked;
+   const wingType = hasWings ? document.getElementById('wing-type').value : 'None';
+   const traits = Array.from(document.querySelectorAll('input[name="traits"]:checked')).map(el => el.value);
+   const mood = document.getElementById('familiar-mood').value;
+   const contractEnd = document.getElementById('contract-end').value;
+   
+   // Bygg en beskrivelse av familiaren
+   let description = `${familiarName}, a ${familiarType} with ${wingType} wings.`;
+   if (traits.length > 0) {
+       description += ` It has the following traits: ${traits.join(', ')}.`;
+   }
+   description += ` It appears to be ${mood}. The contract ends on ${contractEnd}.`;
+
+   // Vis familiarens beskrivelse i konsollen
+   console.log(description);
+
+   // Vis en tilbakemelding på nettsiden
+   document.getElementById('familiar-feedback').innerText = description;
+});
+
 //TODO: add functionality to change password
 //TODO: add functionality to change name
 //TODO: add functionality to summon familiar

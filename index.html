@@ -68,7 +68,42 @@
 
             <div class="page-right">
                 <form id="summon-form">
-                    <!-- TODO: add form for summon familiar -->
+                    <form id="summon-form">
+                        <label for="familiar-name">Familiar Name</label>
+                        <input type="text" id="familiar-name" name="familiar-name" required>
+                    
+                        <label for="familiar-type">Familiar Base Type</label>
+                        <input type="text" id="familiar-type" name="familiar-type" required>
+                    
+                        <label for="has-wings">Has Wings</label>
+                        <input type="checkbox" id="has-wings" name="has-wings">
+                    
+                        <div id="wing-type" class="hidden">
+                            <label for="wing-type">Wing Type</label>
+                            <input type="text" id="wing-type" name="wing-type">
+                        </div>
+                    
+                        <label for="familiar-traits">Familiar Traits</label>
+                        <input type="checkbox" id="trait-levitating" name="traits" value="Levitating"> Levitating
+                        <input type="checkbox" id="trait-extra-head" name="traits" value="Extra Head"> Extra Head
+                        <input type="checkbox" id="trait-fire-breath" name="traits" value="Fire Breath"> Fire Breath
+                    
+                        <label for="familiar-mood">Familiar Mood</label>
+                        <select id="familiar-mood" name="familiar-mood">
+                            <option value="Angry">Angry</option>
+                            <option value="Sleepy">Sleepy</option>
+                            <option value="Confident">Confident</option>
+                            <option value="Curious">Curious</option>
+                        </select>
+                    
+                        <label for="contract-end">End of Contract</label>
+                        <input type="date" id="contract-end" name="contract-end" required>
+                    
+                        <button type="submit">Summon</button>
+                    </form>
+                    
+                    <p id="familiar-feedback"></p>
+                    
                 </form>
             </div>
         </div>
