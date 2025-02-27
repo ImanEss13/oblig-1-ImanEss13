@@ -23,7 +23,16 @@
 
             <form id="change-password-form">
                 <!-- TODO: add form for change password -->
+                <label for="new-password">New Password:</label>
+                <input type="password" id="new-password" required>
+        
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" required>
+        
+                <button type="submit">Change Password</button>
             </form>
+            <div id="password-feedback"></div>
+
         </div>
         <div class="spell-page hidden" id="change-name-book">
             <div class="page-left">
