@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The MagiScript Library</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+     
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js" defer></script>
 </head>
 <body class="library">
-<h1>
+<h1 id="name-title">
     Welcome to The MagiScript Library of Mexyll the Magnificent
 </h1>
 <div class="book-view-container">
@@ -46,8 +47,6 @@
                 attributes, marking a rebirth of self in the mystic realms.
                 You should henceforth be known as
                 <form id="rename-form">
-                    <p>Wizard Name: <span id="wizard-name"></span></p>
-                    <p>Wizard Title: <span id="wizard-title"></span></p>
 
                         <label for="new-name">New Name</label>
                         <input type="text" id="new-name" name="new-name" required>
@@ -61,6 +60,7 @@
                      </form>
             </div>
         </div>
+        
 
         <div class="spell-page hidden" id="summon-familiar-book">
             <div class="page-left">
@@ -68,7 +68,6 @@
             </div>
 
             <div class="page-right">
-                <form id="summon-form">
                     <form id="summon-form">
                         <label for="familiar-name">Familiar Name</label>
                         <input type="text" id="familiar-name" name="familiar-name" required>
@@ -104,8 +103,6 @@
                     </form>
                     
                     <p id="familiar-feedback"></p>
-                    
-                </form>
             </div>
         </div>
     </div>
@@ -114,7 +111,7 @@
 <p>Explore the magic within books...</p>
 <div class="books-container">
     <div class="book" id="change-password-book-cover">
-        <h2>The Arcanum of Archmage Arlo the Apathetic</h2>
+        <h2 id="first-book">The Arcanum of Archmage Arlo the Apathetic</h2>
         <img src="resources/books/arcanum.webp" alt="Cover of Arcanum of Archmage Arlo the Apathetic">
     </div>
     <div class="book" id="change-name-book-cover">
@@ -128,7 +125,7 @@
     </div>
 </div>
 <script>
-    $(document).ready(function () {
+   /* $(document).ready(function () {
             // Klikk på bokomslagene for å vise de respektive spell-sidene
             $('#change-password-book-cover').click(function () {
                 $('#change-password-book').removeClass('hidden');
@@ -173,24 +170,25 @@
                 $('#wizard-title').text(newTitle);
 
                 $('#name-feedback').text('Name and title updated!');
+                $('#name-title').html(newTitle);
             });
 
             // Formulær for å påkalle familiar
-            $('#summon-form').submit(function (e) {
-                e.preventDefault();
-                var familiarName = $('#familiar-name').val();
-                var familiarType = $('#familiar-type').val();
-                var hasWings = $('#has-wings').is(':checked');
-                var familiarMood = $('#familiar-mood').val();
-                var contractEnd = $('#contract-end').val();
+        $('#summon-form').submit(function (e) {
+            e.preventDefault();
+            var familiarName = $('#familiar-name').val();
+            var familiarType = $('#familiar-type').val();
+            var hasWings = $('#has-wings').is(':checked');
+            var familiarMood = $('#familiar-mood').val();
+            var contractEnd = $('#contract-end').val();
 
-                var familiarDetails = 'Summoning: ' + familiarName + ' the ' + familiarType + ' with a mood of ' + familiarMood;
-                if (hasWings) {
-                    var wingType = $('#wing-type').val();
-                    familiarDetails += ' and wings (' + wingType + ')';
-                }
-                $('#familiar-feedback').text(familiarDetails);
-            });
+            var familiarDetails = 'Summoning: ' + familiarName + ' the ' + familiarType + ' with a mood of ' + familiarMood;
+            if (hasWings) {
+                var wingType = $('#wing-type').val();
+                familiarDetails += ' and wings (' + wingType + ')';
+            }
+            alert(familiarDetails);
+        });
 
             // Vis/hide wing type input
             $('#has-wings').change(function () {
@@ -200,7 +198,7 @@
                     $('#wing-type').addClass('hidden');
                 }
             });
-        });
+        }); */
     </script>
 </body>
 </html>
