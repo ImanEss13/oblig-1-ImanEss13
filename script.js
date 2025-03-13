@@ -24,6 +24,8 @@ document.getElementById('change-password-form').addEventListener('submit', funct
 $(".book").click(function () {
    var bookId = $(this).attr("id") + "-book"; // Finn bokens ID
    $("#" + bookId).removeClass("hidden"); // Vis boken
+   $(".spell-page").addClass("hidden"); // Skjul alle åpne bøker
+    $("#" + bookId).removeClass("hidden"); // Vis den nye boken
 });
 
 $("#close-tome").click(function () {
