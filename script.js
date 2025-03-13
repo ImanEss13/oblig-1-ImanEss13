@@ -28,8 +28,8 @@ $(".book").click(function () {
     $("#" + bookId).removeClass("hidden"); // Vis den nye boken
 });
 
-$("#close-tome").click(function () {
-   $(this).closest(".spell-page").addClass("hidden"); // Skjul bokinnhold
+$(".close-tome").click(function () {
+   $(".spell-page").addClass("hidden"); // Skjul bokinnhold
 });
 // 
 document.getElementById('rename-form').addEventListener('submit', function(event) {
@@ -68,13 +68,13 @@ document.getElementById('summon-form').addEventListener('submit', function(event
    // Bygg en beskrivelse av familiaren
    let description = `${familiarName}, a ${familiarType} with ${wingType} wings.`;
    if (traits.length > 0) {
-       familiardescription += ` It has the following traits: ${traits.join(', ')}.`;
+      description += ` It has the following traits: ${traits.join(', ')}.`;
    }
-   familiardescription += ` It appears to be ${mood}. The contract ends on ${contractEnd}.`;
+   description += ` It appears to be ${mood}. The contract ends on ${contractEnd}.`;
 
    // Vis familiarens beskrivelse i konsollen
    console.log(description);
-   alert(familiarDescription);
+   alert(Description);// Nå sender vi rikitg beskrivelse til alert
 
    // Vis en tilbakemelding på nettsiden
    document.getElementById('familiar-feedback').innerText = "Familiar summoned successfully!";
